@@ -454,12 +454,14 @@ if ( !class_exists( 'toc' ) ) :
 			// register our CSS and scripts
 			wp_register_style( 'toc-screen', $this->path . '/screen.min.css', array(), TOC_VERSION );
 			wp_register_script( 'toc-front', $this->path . '/front.min.js', array('jquery'), TOC_VERSION, true );
+			wp_register_script( 'toc-front-reactive', $this->path . '/front-reactive.js', array('jquery'), TOC_VERSION, true );
 			
 			// enqueue them!
 			if ( !$this->options['exclude_css'] ) wp_enqueue_style("toc-screen");
 			
 			if ( $this->options['smooth_scroll'] ) $js_vars['smooth_scroll'] = true;
 			wp_enqueue_script( 'toc-front' );
+			wp_enqueue_script( 'toc-front-reactive' );
 			if ( $this->options['show_heading_text'] && $this->options['visibility'] ) {
 				$width = ( $this->options['width'] != 'User defined' ) ? $this->options['width'] : $this->options['width_custom'] . $this->options['width_custom_units'];
 				$js_vars['visibility_show'] = esc_js($this->options['visibility_show']);
