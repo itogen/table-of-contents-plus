@@ -34,7 +34,7 @@ jQuery(function() {
           if(contentsArr[i]['top'] <= windowScrolltop && contentsArr[i]['bottom'] > windowScrolltop) {
                 // 開始位置と終了位置の間にある場合、ナビゲーションにclass="current"をつける
                 navLink.parent().removeClass('current');
-                navLink.eq(i).parent().addClass('current');
+                navLink.eq(i).parents('.toc_widget li').addClass('current');
                 break;
             }
        };

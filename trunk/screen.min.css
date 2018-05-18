@@ -5,8 +5,12 @@
 	display:none;
 }
 
+.toc_widget ul {
+	padding-left: 14px;
+}
 
-.toc_widget li.current, .toc_widget li:hover {
+.toc_widget li.current>a, .toc_widget li a:hover {
+	color: #333435;
 	background-color: #f5f8fa;
 }
 
@@ -17,14 +21,13 @@
 
 .toc_widget a{
 	display: block;
+	margin-bottom: 3px;
 	text-decoration: none;
 	font-size:80%;
 	color: #949597;
 }
 
-.toc_widget li.current a{
-	color: #333435;
-}
 .toc_widget a:hover{
 	text-decoration: underline;
+	color: #333435;
 }
