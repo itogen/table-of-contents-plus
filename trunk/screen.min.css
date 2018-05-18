@@ -6,6 +6,22 @@
 }
 
 
-.toc_widget .current {
-	background-color: #aaa;
+.toc_widget li.current, .toc_widget li:hover {
+	background-color: #f3f4f5;
+}
+
+.toc_widget_window {
+	max-height: 100vh;
+	overflow-y: auto;
+}
+
+.toc_widget a{
+	display: block;
+	text-decoration: none;
+	color: #333435;
+	font-size:80%;
+}
+
+.toc_widget a:hover{
+	text-decoration: underline;
 }

@@ -33,14 +33,14 @@ jQuery(function() {
            // 現在のスクロール位置が、配列に格納した開始位置と終了位置の間にあるものを調べる
           if(contentsArr[i]['top'] <= windowScrolltop && contentsArr[i]['bottom'] > windowScrolltop) {
                 // 開始位置と終了位置の間にある場合、ナビゲーションにclass="current"をつける
-               navLink.removeClass('current');
-               navLink.eq(i).addClass('current');
-               break;
-               i = contentsArrLength;
+                navLink.parent().removeClass('current');
+                navLink.eq(i).parent().addClass('current');
+                break;
             }
        };
   }
- 
+
+
    // ページ読み込み時とスクロール時に、現在地をチェックする
   jQuery(window).on('load scroll', function() {
       currentCheck();
