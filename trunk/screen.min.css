@@ -18,10 +18,13 @@
 .toc_widget a{
 	display: block;
 	text-decoration: none;
-	color: #333435;
 	font-size:80%;
+	color: #949597;
 }
 
+.toc_widget li.current a{
+	color: #333435;
+}
 .toc_widget a:hover{
 	text-decoration: underline;
 }
