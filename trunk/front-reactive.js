@@ -24,33 +24,25 @@ jQuery(function() {
             }
         }
    };
-  // 現在地をチェックする
-   function currentCheck() {
-       // 現在のスクロール位置を取得
+    // 現在地をチェックする
+    function currentCheck() {
+        // 現在のスクロール位置を取得
         var windowScrolltop = jQuery(window).scrollTop();
         contentsArrLength = contentsArr.length;
         for (var i = 0; i < contentsArrLength; i++) {
-           // 現在のスクロール位置が、配列に格納した開始位置と終了位置の間にあるものを調べる
-          if(contentsArr[i]['top'] <= windowScrolltop && contentsArr[i]['bottom'] > windowScrolltop) {
+            // 現在のスクロール位置が、配列に格納した開始位置と終了位置の間にあるものを調べる
+            if(contentsArr[i]['top'] <= windowScrolltop && contentsArr[i]['bottom'] > windowScrolltop) {
                 // 開始位置と終了位置の間にある場合、ナビゲーションにclass="current"をつける
                 navLink.parent().removeClass('current');
                 navLink.eq(i).parents('.toc_widget li').addClass('current');
                 break;
             }
-       };
-  }
+        };
+    }
 
 
-   // ページ読み込み時とスクロール時に、現在地をチェックする
-  jQuery(window).on('load scroll', function() {
-      currentCheck();
- });
- 
- // ナビゲーションをクリックした時のスムーズスクロール
-    navLink.click(function() {
-      jQuery('html,body').animate({
-          scrollTop: jQuery(jQuery(this).attr('href')).offset().top
-       }, 300);
-        return false;
-   })
+    // ページ読み込み時とスクロール時に、現在地をチェックする
+    jQuery(window).on('load scroll', function() {
+        currentCheck();
+    });
 });
