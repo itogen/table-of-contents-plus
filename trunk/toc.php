@@ -1632,7 +1632,7 @@ if ( !class_exists( 'toc_widget' ) ) :
 					if ( $title ) echo $before_title . $title . $after_title;
 
 					// display the list
-					echo '<div class="toc_widget_window"><ul class="toc_widget_list' . $css_classes . '">' . $items . '</ul></div>';
+					echo '<div class="toc_widget_window"><ul id="toc_widget_list" class="toc_widget_list'  . $css_classes . '">' . $items . '</ul></div>';
 					
 					// after widget (defined by themes)
 					echo $after_widget;
