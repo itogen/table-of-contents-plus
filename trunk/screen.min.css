@@ -5,8 +5,8 @@
 }
 
 .toc_widget li.current>a, .toc_widget li a:hover {
-	color: #333435;
 	background-color: #f5f8fa;
+	font-weight: bolder;
 }
 
 .toc_widget_window {
@@ -20,10 +20,9 @@
 	margin-bottom: 3px;
 	text-decoration: none;
 	font-size:80%;
-	color: #949597;
+	color: #333435;
 }
 
 .toc_widget a:hover{
 	text-decoration: underline;
-	color: #333435;
 }
