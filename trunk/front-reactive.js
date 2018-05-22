@@ -15,9 +15,9 @@ jQuery(function() {
             var targetContentsTop = jQuery(targetContents).offset().top;
             // 要素の開始位置と次の要素の開始位置を配列に格納
             contentsArr[i] = [];
-            contentsArr[i]['top'] = targetContentsTop - 5;
+            contentsArr[i]['top'] = targetContentsTop - 5;//環境によって微妙にずれるので補正
             if(i > 0) {
-                contentsArr[i - 1]['bottom'] = targetContentsTop - 5;
+                contentsArr[i - 1]['bottom'] = targetContentsTop - 5;//環境によって微妙にずれるので補正
             }
             if(i + 1 === navLink.length) {
                 contentsArr[i]['bottom'] = jQuery(document).outerHeight(true);
@@ -39,7 +39,7 @@ jQuery(function() {
                 //スクロール位置調整
                 var position = jQuery('#toc_widget_list>li.current').offset().top
                     - jQuery('#toc_widget_list').offset().top
-                    - jQuery('.toc_widget_window').outerHeight() / 2;
+                    - jQuery('.toc_widget_window').outerHeight() / 4;
                 jQuery('.toc_widget_window').scrollTop(position);
                 break;
             }
