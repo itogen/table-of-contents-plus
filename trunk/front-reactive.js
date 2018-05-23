@@ -1,7 +1,7 @@
 //参考： https://www.tam-tam.co.jp/tipsnote/javascript/post4996.html
 jQuery(function() {
     // ナビゲーションのリンクを指定
-   var navLink = jQuery('.toc_widget .toc_widget_list li a');
+   var navLink = jQuery('.toc_widget:not(.mobile-menu-buttons *) .toc_widget_list li a');
  
     // 各コンテンツのページ上部からの開始位置と終了位置を配列に格納しておく
    var contentsArr = new Array();
@@ -23,7 +23,8 @@ jQuery(function() {
                 contentsArr[i]['bottom'] = jQuery(document).outerHeight(true);
             }
         }
-   };
+   }
+   console.log(contentsArr);
     // 現在地をチェックする
     function currentCheck() {
         // 初期化
