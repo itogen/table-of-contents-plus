@@ -23,12 +23,11 @@ jQuery(function() {
                 contentsArr[i]['bottom'] = jQuery(document).outerHeight(true);
             }
         }
-   }
-   console.log(contentsArr);
+    }
     // 現在地をチェックする
     function currentCheck() {
         // 初期化
-        jQuery('.toc_widget li').removeClass('current');
+        jQuery('.toc_widget li').removeClass('current current-bottom');
         // 現在のスクロール位置を取得
         var windowScrolltop = jQuery(window).scrollTop();
         contentsArrLength = contentsArr.length;
@@ -36,18 +35,24 @@ jQuery(function() {
             // 現在のスクロール位置が、配列に格納した開始位置と終了位置の間にあるものを調べる
             if(contentsArr[i]['top'] <= windowScrolltop && contentsArr[i]['bottom'] > windowScrolltop) {
                 // 開始位置と終了位置の間にある場合、ナビゲーションにclass="current"をつける
+                navLink.eq(i).parent().addClass('current-bottom');
                 navLink.eq(i).parents('.toc_widget li').addClass('current');
                 //スクロール位置調整
-                var position = jQuery('#toc_widget_list>li.current').offset().top
+                var position = jQuery('#toc_widget_list .current-bottom').offset().top
                     - jQuery('#toc_widget_list').offset().top
-                    - jQuery('.toc_widget_window').outerHeight() / 4;
+                    - jQuery('.toc_widget_window').outerHeight() / 2;
                 jQuery('.toc_widget_window').scrollTop(position);
                 break;
             }
         }
     }
 
-
+    navLink.click(function() {
+       jQuery('html,body').animate({
+           scrollTop: jQuery(jQuery(this).attr('href')).offset().top
+        }, 100);
+        return false;
+    })
     // ページ読み込み時とスクロール時に、現在地をチェックする
     jQuery(window).on('load scroll', function() {
         currentCheck();
