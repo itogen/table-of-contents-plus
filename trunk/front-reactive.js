@@ -40,19 +40,23 @@ jQuery(function() {
                 //スクロール位置調整
                 var position = jQuery('#toc_widget_list .current-bottom').offset().top
                     - jQuery('#toc_widget_list').offset().top
-                    - jQuery('.toc_widget_window').outerHeight() / 2;
+                    - jQuery('.toc_widget_window').outerHeight() / 4;
+                // jQuery('.toc_widget_window').animate({
+                //     scrollTop: position
+                // }, 100);
                 jQuery('.toc_widget_window').scrollTop(position);
                 break;
             }
         }
     }
 
-    navLink.click(function() {
-       jQuery('html,body').animate({
-           scrollTop: jQuery(jQuery(this).attr('href')).offset().top
-        }, 100);
-        return false;
-    })
+    // navLink.click(function() {
+    //    jQuery('html,body').animate({
+    //        scrollTop: jQuery(jQuery(this).attr('href')).offset().top
+    //     }, 100);
+    //     return false;
+    // })
+
     // ページ読み込み時とスクロール時に、現在地をチェックする
     jQuery(window).on('load scroll', function() {
         currentCheck();
